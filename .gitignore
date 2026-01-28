@@ -1,0 +1,14 @@
+# CLion / IntelliJ
+.idea/
+cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compiled binaries
+*.o
+*.exe
+*.out
