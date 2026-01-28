@@ -1,7 +1,8 @@
 What I see: I see everything that is expected in the output.
 The command, arguments, and switched are written inside of mytemp.txt like specified.
 The program finds the switched even when they are towards the end of the command line argument.
-It's finding the command and deleting he "./" accordingly.
+It's finding the command and deleting he "./" accordingly. I also see that the final test lists out
+the dummy names for the .bak files.
 
 What I wasn't seeing: I wasn't seeing the data inside mytemp.txt at first. I found out it was because
 we weren't printing to cout along with the file stream. Once we figured out that to be the issue, we corrected it.

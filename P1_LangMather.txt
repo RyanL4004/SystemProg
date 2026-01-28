@@ -1,1 +1,39 @@
-
+total 120
+drwxr-xr-x@ 13 rydawg  staff    416 Jan 28 12:53 cmake-build-debug
+-rw-r--r--@  1 rydawg  staff    123 Jan 28 11:22 CMakeLists.txt
+-rw-r--r--@  1 rydawg  staff      0 Jan 28 13:06 dummy1.bak
+-rw-r--r--@  1 rydawg  staff      0 Jan 28 13:06 dummy2.bak
+-rw-r--r--@  1 rydawg  staff   1148 Jan 28 12:56 main.cpp
+-rwxr-xr-x   1 rydawg  staff  46400 Jan 28 13:08 P1_LangMather
+-rw-r--r--@  1 rydawg  staff      0 Jan 28 13:09 P1_LangMather.txt
+-rw-r--r--@  1 rydawg  staff    555 Jan 28 13:02 RyansFeedback.txt
+---------------------------------
+command   P1_LangMather
+---------------------------------
+command   P1_LangMather
+switch    o
+argument  myCommand
+argument  myMain.cpp
+argument  myClass.cpp
+---------------------------------
+command   P1_LangMather
+argument  w/java
+argument  bash-3.2
+argument  ls
+switch    l
+---------------------------------
+command   P1_LangMather
+switch    au
+switch    -verbose
+argument  w/java/
+argument  kira:w/java/
+---------------------------------
+command   P1_LangMather
+switch    i
+argument  CSCI 6657
+argument  *.html
+---------------------------------
+command   P1_LangMather
+argument  dummy1.bak
+argument  dummy2.bak
+argument  *.log
