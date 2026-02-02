@@ -68,3 +68,9 @@ command   P1
 argument  dummy1.bak
 argument  dummy2.bak
 argument  test1.log
+---------------------------------
+command   P1
+switch    i
+argument  CSCI 6657
+argument  test1.html
+argument  test2.html
