@@ -1,3 +1,6 @@
+// Ryan Lang & Kyle Mather
+// CSCI 4547 Systems Programming
+
 #include <iostream>
 #include <string>
 #include <iomanip>
