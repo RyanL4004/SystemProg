@@ -37,3 +37,34 @@ command   P1_LangMather
 argument  dummy1.bak
 argument  dummy2.bak
 argument  *.log
+---------------------------------
+command   P1
+---------------------------------
+command   P1
+switch    o
+argument  myCommand
+argument  myMain.cpp
+argument  myClass.cpp
+---------------------------------
+command   P1
+argument  w/java
+argument  bash-3.2
+argument  ls
+switch    l
+---------------------------------
+command   P1
+switch    au
+switch    -verbose
+argument  w/java/
+argument  kira:w/java/
+---------------------------------
+command   P1
+switch    i
+argument  CSCI 6657
+argument  test1.html
+argument  test2.html
+---------------------------------
+command   P1
+argument  dummy1.bak
+argument  dummy2.bak
+argument  test1.log

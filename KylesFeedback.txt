@@ -1,0 +1,15 @@
+During testing, it became clear that the Unix shell processes and transforms a command line
+before the program ever receives its arguments. Glob patterns such as *.html, *.bak, and *.log
+are expanded by the shell into actual filenames, which required creating matching files so the
+commands would run successfully in zsh. Unlike bash, zsh throws an error if a glob matches nothing,
+which demonstrated that shell behavior can differ across systems. Quoted text such as "CSCI 6657" was
+passed to the program as a single argument with the quotes removed, showing how the shell preserves
+whitespace within arguments. Switches beginning with - were correctly identified by the program, while
+all other tokens were labeled as arguments.
+
+The use of output redirection with > also showed that only standard output (cout) is redirected,
+while the program’s own file stream (opened with ofstream in append mode) continued writing to
+P1_LangMather.txt. This demonstrated that redirection is handled entirely by the shell and does not
+affect files opened within the program. Overall, the tests showed that the shell expands glob patterns,
+removes quotes, and handles redirection before passing the final processed tokens into argv[], meaning
+the program simply prints what it receives without performing any of these transformations itself.
