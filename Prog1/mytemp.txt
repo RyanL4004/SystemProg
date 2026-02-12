@@ -1,0 +1,6 @@
+---------------------------------
+command   P1
+switch    i
+argument  CSCI 6657
+argument  test1.html
+argument  test2.html

@@ -1,0 +1,30 @@
+Command: sweeper
+Start at: /Users/kylemather/CLionProjects/SystemProg/Prog2
+Output file: (stdout)
+Verbose? Yes
+Min size: 1
+Command: sweeper
+Start at: /Users/kylemather/CLionProjects/SystemProg/Prog2/sweeper_test
+Output file: (stdout)
+Verbose? No
+Min size: 5
+Usage: sweeper [OPTIONS] [SEARCH_ROOT]
+
+Find duplicate files starting at SEARCH_ROOT (default: current directory).
+
+Options:
+  -d, --dir PATH         Start directory
+  -m, --min-size BYTES   Minimum file size (default: 1)
+  -o, --output FILE      Write output to FILE (append mode)
+  -v, --verbose          Verbose output
+  -h, --help             Show this help
+
+Examples:
+  sweeper
+  sweeper -v -o found.txt --dir ./testdir
+
+Command: sweeper
+Start at: /Users/kylemather/CLionProjects/SystemProg/Prog2/sweeper_test
+Output file: all_tests.txt
+Verbose? Yes
+Min size: 1
