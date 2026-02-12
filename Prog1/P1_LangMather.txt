@@ -38,6 +38,7 @@ argument  dummy1.bak
 argument  dummy2.bak
 argument  *.log
 ---------------------------------
+
 command   P1
 ---------------------------------
 command   P1
