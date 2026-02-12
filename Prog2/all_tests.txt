@@ -28,3 +28,9 @@ Start at: /Users/kylemather/CLionProjects/SystemProg/Prog2/sweeper_test
 Output file: all_tests.txt
 Verbose? Yes
 Min size: 1
+
+Command: sweeper
+Start at: /Users/rydawg/CLionProjects/SystemsProg/Prog2
+Output file: all_tests.txt
+Verbose? Yes
+Min size: 5
