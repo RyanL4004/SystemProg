@@ -2,14 +2,16 @@
 #include <string>
 #include <iostream>
 #include <cstring>
+using namespace std;
 
-// Constructor / Destructor
+// Constructor
 Direntry::Direntry() = default;
+// Destructor
 Direntry::~Direntry() = default;
 
 // Print function
-void Direntry::print(std::ostream &out) const {
-    std::string typeStr;
+void Direntry::print(ostream &out) const {
+    string typeStr;
     switch (d_type) {
         case DT_REG:  typeStr = "File"; break;
         case DT_DIR:  typeStr = "Directory"; break;
@@ -22,4 +24,4 @@ void Direntry::print(std::ostream &out) const {
 // Accessors
 ino_t Direntry::getInode() const { return d_ino; }
 uint8_t Direntry::getType() const { return d_type; }
-std::string Direntry::getName() const { return std::string(d_name); }
+string Direntry::getName() const { return string(d_name); }

@@ -5,20 +5,22 @@
 #include <dirent.h>
 #include <iostream>
 #include <string>
+using namespace std;
 
 class Direntry : private dirent {
 public:
-    // Constructor / Destructor
+    // Constructor
     Direntry();
+    // Destructor
     ~Direntry();
 
     // Print function
-    void print(std::ostream &out = std::cout) const;
+    void print(ostream &out = cout) const;
 
     // Accessors
     ino_t getInode() const;
     uint8_t getType() const;
-    std::string getName() const;
+    string getName() const;
 };
 
 #endif

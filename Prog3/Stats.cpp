@@ -3,7 +3,7 @@
 Stats::Stats() = default;
 Stats::~Stats() = default;
 
-void Stats::print(std::ostream &out) const {
+void Stats::print(ostream &out) const {
     out << "iNode: " << st_ino
         << "\tSize: " << st_size
         << "\tLinks: " << st_nlink

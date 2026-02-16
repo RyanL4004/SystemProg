@@ -3,13 +3,13 @@
 
 #include <sys/stat.h>
 #include <iostream>
-
+using namespace std;
 class Stats : public stat {
 public:
     Stats();
     ~Stats();
 
-    void print(std::ostream &out = std::cout) const;
+    void print(ostream &out = cout) const;
 };
 
 #endif

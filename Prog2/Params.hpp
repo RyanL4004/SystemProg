@@ -4,13 +4,14 @@
 #include <fstream>
 #include <string>
 #include <limits.h>   // PATH_MAX
+using namespace std;
 
 class Params {
 public:
     // Data members (as required)
     char startDir[PATH_MAX];     // full pathname of starting directory
-    std::string outPathRel;      // relative pathname of output file
-    std::ofstream out;           // open output stream
+    string outPathRel;      // relative pathname of output file
+    ofstream out;           // open output stream
 
     bool verbose;
     bool help;

@@ -3,12 +3,11 @@
 #include "Params.hpp"
 #include "Sweeper.h"
 #include "tools.c"
-// Dummy tools functions
 
 
 int main(int argc, char* argv[]) {
     banner();
-    std::cout << "Welcome to P3: Sweeper\n";
+    cout << "Welcome to P3: Sweeper\n";
 
     Params params(argc, argv);
     Sweeper sweeper(params);
@@ -19,7 +18,7 @@ int main(int argc, char* argv[]) {
     }
 
     sweeper.oneDir();
-    sweeper.printFiles(params.out.is_open() ? params.out : std::cout);
+    sweeper.printFiles(params.out.is_open() ? params.out : cout);
 
     bye();
     return 0;

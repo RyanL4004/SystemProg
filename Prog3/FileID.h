@@ -4,20 +4,21 @@
 #include <string>
 #include <iostream>
 #include "Stats.h"
+using namespace std;
 
 class FileID {
 private:
-    std::string simpleName;
+    string simpleName;
     ino_t inode;
     int size;
-    std::string fullPath;
+    string fullPath;
 
 public:
-    FileID(const std::string &name, const std::string &path, const Stats &stats);
+    FileID(const string &name, const string &path, const Stats &stats);
 
-    void print(std::ostream &out = std::cout) const;
+    void print(ostream &out = cout) const;
 
-    inline std::string getPath() const;
+    inline string getPath() const;
     inline ino_t getInode() const;
     inline int getSize() const;
 };

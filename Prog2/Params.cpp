@@ -12,10 +12,10 @@
 static size_t parseMinSize(const char* s) {
     char* end = nullptr;
     errno = 0;
-    unsigned long long val = std::strtoull(s, &end, 10);
+    unsigned long long val = strtoull(s, &end, 10);
 
     if (errno != 0 || end == s || *end != '\0') {
-        throw std::runtime_error("Invalid value for --min-size");
+        throw runtime_error("Invalid value for --min-size");
     }
     if (val < 1) val = 1;
     return static_cast<size_t>(val);
@@ -40,7 +40,7 @@ Params::Params(int argc, char** argv)
         {nullptr,    0,                 nullptr,  0 }
     };
 
-    std::string startDirCandidate;
+    string startDirCandidate;
 
     int opt;
     while ((opt = getopt_long(argc, argv, shortOpts, longOpts, nullptr)) != -1) {
@@ -61,7 +61,7 @@ Params::Params(int argc, char** argv)
                 outPathRel = optarg;
                 break;
             default:
-                throw std::runtime_error("Invalid command line (use --help)");
+                throw runtime_error("Invalid command line (use --help)");
         }
     }
 
@@ -74,7 +74,7 @@ Params::Params(int argc, char** argv)
     if (startDirCandidate.empty()) {
         char cwd[PATH_MAX];
         if (!getcwd(cwd, sizeof(cwd))) {
-            throw std::runtime_error("getcwd failed");
+            throw runtime_error("getcwd failed");
         }
         startDirCandidate = cwd;
     }
@@ -82,16 +82,16 @@ Params::Params(int argc, char** argv)
     // convert to absolute path
     char absPath[PATH_MAX];
     if (!realpath(startDirCandidate.c_str(), absPath)) {
-        throw std::runtime_error("Invalid start directory");
+        throw runtime_error("Invalid start directory");
     }
-    std::strncpy(startDir, absPath, PATH_MAX);
+    strncpy(startDir, absPath, PATH_MAX);
     startDir[PATH_MAX - 1] = '\0';
 
     // open output file if specified
     if (!outPathRel.empty()) {
-        out.open(outPathRel, std::ios::out | std::ios::app);
+        out.open(outPathRel, ios::out | ios::app);
         if (!out.is_open()) {
-            throw std::runtime_error("Could not open output file");
+            throw runtime_error("Could not open output file");
         }
     }
 

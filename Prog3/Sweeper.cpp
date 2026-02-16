@@ -8,7 +8,7 @@
 #include "Params.hpp"
 
 Sweeper::Sweeper(Params &p) : params(p) {
-    startName = std::string(params.startDir);
+    startName = string(params.startDir);
     fullPath = startName;
 }
 
@@ -54,10 +54,10 @@ void Sweeper::oneDir() {
     }
 
     closedir(dirp);
-    std::cout << "Done processing directory.\n";
+    cout << "Done processing directory.\n";
 }
 
-void Sweeper::printFiles(std::ostream &out) const {
+void Sweeper::printFiles(ostream &out) const {
     for (const auto &f : files) {
         f.print(out);
     }
