@@ -1,6 +1,5 @@
 ---------------------------------
-command   P1
+command   P1_LangMather
 switch    i
 argument  CSCI 6657
-argument  test1.html
-argument  test2.html
+argument  *.html

@@ -1,0 +1,4 @@
+23859635	35	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file2.txt
+23859694	11	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file3.txt
+23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1.txt
+23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1_hardlink.txt
