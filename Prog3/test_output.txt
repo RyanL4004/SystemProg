@@ -1,13 +1,52 @@
 
+================ TEST 1: Basic Run ================
+
+-------------------------------------------------------
+	Lang & Mather 
+	CSCI4547 
+	February 16th  2:00PPM
+-------------------------------------------------------
+Welcome to P3: Sweeper
+Processing directory: /Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir
+Done processing directory.
 23859635	35	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file2.txt
 23859694	11	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file3.txt
 23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1.txt
 23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1_hardlink.txt
+================ END TEST 1 =======================
+
+================ TEST 2: Verbose Mode =============
+
+-------------------------------------------------------
+	Lang & Mather 
+	CSCI4547 
+	February 16th  2:00PPM
+-------------------------------------------------------
+Welcome to P3: Sweeper
+Processing directory: /Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir
+File	23859635	file2.txt
+File	23859694	file3.txt
+File	23859567	file1.txt
+File	23859567	file1_hardlink.txt
+Done processing directory.
 23859635	35	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file2.txt
 23859694	11	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file3.txt
 23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1.txt
 23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1_hardlink.txt
+================ END TEST 2 =======================
+
+================ TEST 3: Minimum Size 20 ==========
+
+-------------------------------------------------------
+	Lang & Mather 
+	CSCI4547 
+	February 16th  2:00PPM
+-------------------------------------------------------
+Welcome to P3: Sweeper
+Processing directory: /Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir
+Done processing directory.
 23859635	35	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file2.txt
 23859694	11	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file3.txt
 23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1.txt
 23859567	12	/Users/rydawg/CLionProjects/SystemsProg/Prog3/testdir/file1_hardlink.txt
+================ END TEST 3 =======================

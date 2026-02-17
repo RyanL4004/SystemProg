@@ -28,7 +28,7 @@ fbanner( cstream sout )
     when(date, time);
     clearscreen();
     fprintf(sout,"\n-------------------------------------------------------\n");
-    fprintf(sout,"\t%s \n\t%s \n\t%s  %s\n", "Lang & Mather", "CSCI4547", "February 16th", "2:00PPM" );
+    fprintf(sout,"\t%s \n\t%s \n\t%s  %s\n", "Lang & Mather", "CSCI4547", "February 16th", "2:00PM" );
     fprintf(sout,"-------------------------------------------------------\n");
 }
 
