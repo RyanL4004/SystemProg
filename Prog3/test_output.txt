@@ -124,3 +124,10 @@ Examples:
   sweeper
   sweeper -v -o found.txt --dir ./testdir
 ================ END TEST 6 ========================
+total 48
+-rw-r--r--  1 kylemather  staff    12 Feb 17 18:16 file1.txt
+-rw-r--r--  1 kylemather  staff    12 Feb 17 18:16 file1_hardlink.txt
+-rw-r--r--  1 kylemather  staff    35 Feb 17 18:16 file2.txt
+lrwxr-xr-x  1 kylemather  staff     9 Feb 17 18:16 file2_symlink.txt -> file2.txt
+-rw-r--r--  1 kylemather  staff    11 Feb 17 18:16 file3.txt
+-rw-r--r--  1 kylemather  staff  5094 Feb 17 18:16 test_output.txt
