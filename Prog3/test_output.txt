@@ -1,3 +1,12 @@
+Output of ls -l on testdir:
+rydawg@Ryans-MacBook-Pro-8 testdir % ls -l
+total 32
+-rw-r--r--  2 rydawg  staff  12 Feb 16 14:41 file1_hardlink.txt
+-rw-r--r--  2 rydawg  staff  12 Feb 16 14:41 file1.txt
+lrwxr-xr-x  1 rydawg  staff   9 Feb 16 14:41 file2_symlink.txt -> file2.txt
+-rw-r--r--  1 rydawg  staff  35 Feb 16 14:41 file2.txt
+-rw-r--r--  1 rydawg  staff  11 Feb 16 14:41 file3.txt
+rydawg@Ryans-MacBook-Pro-8 testdir % 
 
 ================ TEST 1: Basic Run ================
 
