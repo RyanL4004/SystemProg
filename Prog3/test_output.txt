@@ -124,6 +124,7 @@ Examples:
   sweeper
   sweeper -v -o found.txt --dir ./testdir
 ================ END TEST 6 ========================
+
 total 48
 -rw-r--r--  1 kylemather  staff    12 Feb 17 18:16 file1.txt
 -rw-r--r--  1 kylemather  staff    12 Feb 17 18:16 file1_hardlink.txt
@@ -131,3 +132,48 @@ total 48
 lrwxr-xr-x  1 kylemather  staff     9 Feb 17 18:16 file2_symlink.txt -> file2.txt
 -rw-r--r--  1 kylemather  staff    11 Feb 17 18:16 file3.txt
 -rw-r--r--  1 kylemather  staff  5094 Feb 17 18:16 test_output.txt
+
+
+
+-------------------------------------------------------
+	Lang & Mather 
+	CSCI4547 
+	February 16th  2:00PPM
+-------------------------------------------------------
+Welcome to P3: Sweeper
+Processing directory: /Users/kylemather/CLionProjects/SystemProg/Prog3/testdir
+Done processing directory.
+100736802	35	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file2.txt
+100736804	11	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file3.txt
+100736800	12	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file1.txt
+100736801	12	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file1_hardlink.txt
+
+-------------------------------------------------------
+	Lang & Mather 
+	CSCI4547 
+	February 16th  2:00PPM
+-------------------------------------------------------
+Welcome to P3: Sweeper
+Processing directory: /Users/kylemather/CLionProjects/SystemProg/Prog3/testdir
+File	100736802	file2.txt
+File	100736804	file3.txt
+File	100736800	file1.txt
+File	100736801	file1_hardlink.txt
+Done processing directory.
+100736802	35	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file2.txt
+100736804	11	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file3.txt
+100736800	12	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file1.txt
+100736801	12	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file1_hardlink.txt
+
+-------------------------------------------------------
+	Lang & Mather 
+	CSCI4547 
+	February 16th  2:00PPM
+-------------------------------------------------------
+Welcome to P3: Sweeper
+Processing directory: /Users/kylemather/CLionProjects/SystemProg/Prog3/testdir
+Done processing directory.
+100736802	35	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file2.txt
+100736804	11	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file3.txt
+100736800	12	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file1.txt
+100736801	12	/Users/kylemather/CLionProjects/SystemProg/Prog3/testdir/file1_hardlink.txt
