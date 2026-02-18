@@ -1,0 +1,98 @@
+===================================
+testdir output
+===================================
+
+kylemather@Kyles-Air-4 code % ./sweeper ../testdir
+
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P4: Sweeper (Recursive Traversal)
+100804240       11      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file3.txt
+100804238       12      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file1.txt
+100804242       12      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file1_hardlink.txt
+100804239       35      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file2.txt
+
+Normal termination.
+
+===================================
+testdir output (verbose)
+===================================
+
+kylemather@Kyles-Air-4 code % ./sweeper -v ../testdir
+
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P4: Sweeper (Recursive Traversal)
+/Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file2.txt      File    100804239       file2.txt
+/Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file3.txt      File    100804240       file3.txt
+/Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file1.txt      File    100804238       file1.txt
+/Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file1_hardlink.txt     File    100804242       file1_hardlink.txt
+/Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file2_symlink.txt      Link    100804241       file2_symlink.txt
+100804240       11      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file3.txt
+100804238       12      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file1.txt
+100804242       12      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file1_hardlink.txt
+100804239       35      /Users/kylemather/CLionProjects/SystemProg/Prog4/testdir/file2.txt
+
+Normal termination.
+
+===================================
+Snapshot of Home Directory Command
+===================================
+
+kylemather@Kyles-Air-4 code % ./sweeper ~
+
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P4: Sweeper (Recursive Traversal)
+...
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/238CADDB-46E8-544D-B094-A5B989303A7F       Directory       25018136        238CADDB-46E8-544D-B094-A5B989303A7F
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/238CADDB-46E8-544D-B094-A5B989303A7F/TextIndex.plist       File    25018144        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/B945B88E-B386-59A1-A954-17A18452275E       Directory       25017577        B945B88E-B386-59A1-A954-17A18452275E
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/B945B88E-B386-59A1-A954-17A18452275E/TextIndex.plist       File    25017588        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/71AC3F2B-0514-5E86-A6A2-6E2DB8BB8BC3       Directory       25011432        71AC3F2B-0514-5E86-A6A2-6E2DB8BB8BC3
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/71AC3F2B-0514-5E86-A6A2-6E2DB8BB8BC3/TextIndex.plist       File    25011442        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/687D5C9E-DCD6-5B8A-8F3B-6143964D70BA       Directory       25006753        687D5C9E-DCD6-5B8A-8F3B-6143964D70BA
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/687D5C9E-DCD6-5B8A-8F3B-6143964D70BA/TextIndex.plist       File    25006769        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/25580BE2-CE5E-5087-9EF4-DC91BEB58B2A       Directory       25015590        25580BE2-CE5E-5087-9EF4-DC91BEB58B2A
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/25580BE2-CE5E-5087-9EF4-DC91BEB58B2A/TextIndex.plist       File    25015599        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/0A2B1E8C-4602-5A26-A19C-89F85A3CA21B       Directory       25012786        0A2B1E8C-4602-5A26-A19C-89F85A3CA21B
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/0A2B1E8C-4602-5A26-A19C-89F85A3CA21B/TextIndex.plist       File    25012800        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/AE87B597-E825-5956-A2E8-24AB9D1A90AF       Directory       25012227        AE87B597-E825-5956-A2E8-24AB9D1A90AF
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/AE87B597-E825-5956-A2E8-24AB9D1A90AF/TextIndex.plist       File    25012238        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/99F3F77B-95C4-5D44-BA2F-892EE5563BE6       Directory       25017734        99F3F77B-95C4-5D44-BA2F-892EE5563BE6
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/99F3F77B-95C4-5D44-BA2F-892EE5563BE6/TextIndex.plist       File    25017742        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/E2D79BB2-FED5-5ABB-8720-7B6C04338504       Directory       25013627        E2D79BB2-FED5-5ABB-8720-7B6C04338504
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/E2D79BB2-FED5-5ABB-8720-7B6C04338504/TextIndex.plist       File    25013651        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/8E7E37CB-72A7-5FD5-A16B-9E2FD7B07223       Directory       25006057        8E7E37CB-72A7-5FD5-A16B-9E2FD7B07223
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/8E7E37CB-72A7-5FD5-A16B-9E2FD7B07223/TextIndex.plist       File    25006103        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/29AFB5A7-225C-5F5C-982B-D14B31174FBD       Directory       25011475        29AFB5A7-225C-5F5C-982B-D14B31174FBD
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/29AFB5A7-225C-5F5C-982B-D14B31174FBD/TextIndex.plist       File    25011484        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/47E64E8F-45F1-5EE6-87E6-5DF42C400BC8       Directory       25018006        47E64E8F-45F1-5EE6-87E6-5DF42C400BC8
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/47E64E8F-45F1-5EE6-87E6-5DF42C400BC8/TextIndex.plist       File    25018014        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/CD60E238-8015-5F0E-B5EB-4A93B769FE4C       Directory       25016863        CD60E238-8015-5F0E-B5EB-4A93B769FE4C
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/CD60E238-8015-5F0E-B5EB-4A93B769FE4C/TextIndex.plist       File    25016869        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/DA67301B-4EFD-5814-B0E3-2A014210868C       Directory       25017480        DA67301B-4EFD-5814-B0E3-2A014210868C
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/DA67301B-4EFD-5814-B0E3-2A014210868C/TextIndex.plist       File    25017490        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/A70F3F14-442C-5E3C-8C1B-C8DA2799F649       Directory       24658209        A70F3F14-442C-5E3C-8C1B-C8DA2799F649
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/A70F3F14-442C-5E3C-8C1B-C8DA2799F649/TextIndex.plist       File    25009948        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/25665B2A-E209-5FD0-B354-A4364679A0B0       Directory       25011472        25665B2A-E209-5FD0-B354-A4364679A0B0
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/25665B2A-E209-5FD0-B354-A4364679A0B0/TextIndex.plist       File    25011482        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/08AE2E7B-BBA9-59AC-8C5A-66E4EFA98477       Directory       25012891        08AE2E7B-BBA9-59AC-8C5A-66E4EFA98477
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/08AE2E7B-BBA9-59AC-8C5A-66E4EFA98477/TextIndex.plist       File    25012915        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/53B34A44-77D4-5E89-8C50-63B1D81E6703       Directory       25007038        53B34A44-77D4-5E89-8C50-63B1D81E6703
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/53B34A44-77D4-5E89-8C50-63B1D81E6703/TextIndex.plist       File    25007137        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/A01A5593-6212-50E2-A809-1F824E7A4BCC       Directory       79312112        A01A5593-6212-50E2-A809-1F824E7A4BCC
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/Library/NotesSearchIndex/NoteTextIndexer/A01A5593-6212-50E2-A809-1F824E7A4BCC/TextIndex.plist       File    79312123        TextIndex.plist
+/Users/kylemather/Library/Containers/com.gingerlabs.Notability/Data/^C
