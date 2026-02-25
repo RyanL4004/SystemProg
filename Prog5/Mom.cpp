@@ -1,7 +1,9 @@
 #include <iostream>
 #include <unistd.h>
 #include <cstdlib>
+#include <ctime>
 #include "Kid.h"
+
 
 using namespace std;
 
@@ -24,18 +26,22 @@ void playOneRound(Model* m, Kid* players[]) {
         pthread_kill(players[i]->getTid(), SIGUSR1);
     }
 
+    // Wait until all kids start marching
     pthread_mutex_lock(&m->lock);
     while (m->nMarching < currentPlayers)
         pthread_cond_wait(&m->condMarch, &m->lock);
     pthread_mutex_unlock(&m->lock);
 
+    // Slow it down
     sleep(1);
 
+    // Send stop signal
     for (int i = 0; i < currentPlayers; i++)
         pthread_kill(players[i]->getTid(), SIGUSR2);
 
+    // Wait until all kids stop marching
     pthread_mutex_lock(&m->lock);
-    while (m->nMarching > 0)
+    while (m->nMarching < 2 * currentPlayers)
         pthread_cond_wait(&m->condStop, &m->lock);
     pthread_mutex_unlock(&m->lock);
 
@@ -50,7 +56,11 @@ void playOneRound(Model* m, Kid* players[]) {
 
     if (loserIndex != -1) {
         printf("Mom removes Kid %d\n", players[loserIndex]->getID());
+
+        delete players[loserIndex];
+
         players[loserIndex] = players[currentPlayers - 1];
+
         m->nPlayers--;
         m->nChairs--;
     }
@@ -66,7 +76,9 @@ int main(int argc, char* argv[]) {
 
     Model model(nKids - 1, nKids);
 
-    Kid* players[nKids];
+    srand(time(NULL));
+
+    Kid** players = new Kid*[nKids];
 
     for (int i = 0; i < nKids; i++)
         players[i] = new Kid(&model, i);
@@ -79,6 +91,8 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < nKids; i++)
         pthread_join(players[i]->getTid(), NULL);
+
+    delete[] players;
 
     pthread_exit(NULL);
 }

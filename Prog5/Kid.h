@@ -10,7 +10,7 @@ private:
     Model* model;
     int id;
     pthread_t tid;
-
+    unsigned int seed;
     sigset_t signalSet;
 
     int wantSeat;
@@ -25,7 +25,7 @@ public:
 
     bool isSitting();
     void standUp();
-
+    void takeTurn(int sig);
     void doMarch();
     void doSit();
     void play();

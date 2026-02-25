@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unistd.h>
+#include <ctime>
 #include <cstdlib>
 #include "Kid.h"
 
@@ -9,7 +10,9 @@ Kid::Kid(Model* m, int idNum) {
     model = m;
     id = idNum;
     seatNumber = -1;
-
+    seed = static_cast<unsigned int>(
+    time(NULL) ^ id ^ reinterpret_cast<uintptr_t>(pthread_self())
+    );
     sigemptyset(&signalSet);
     sigaddset(&signalSet, SIGUSR1);
     sigaddset(&signalSet, SIGUSR2);
@@ -29,46 +32,65 @@ bool Kid::isSitting() { return seatNumber != -1; }
 void Kid::standUp() { seatNumber = -1; }
 
 void Kid::doMarch() {
-    wantSeat = rand() % model->nChairs;
+    wantSeat = rand_r(&seed) % model->nChairs;
 
     pthread_mutex_lock(&model->lock);
-    model->nMarching++;
+
+    model->nMarching++;   // first increment
+
     pthread_cond_signal(&model->condMarch);
     pthread_mutex_unlock(&model->lock);
 
-    printf("Kid %d is marching\n", id);
+    printf("Kid %d starts marching\n", id);
 }
 
 void Kid::doSit() {
-    usleep(rand() % 500000);
+    usleep(rand_r(&seed) % 500000);
 
     pthread_mutex_lock(&model->lock);
+
+    model->nMarching++;   // second increment
+
+    pthread_cond_signal(&model->condStop);
+    pthread_mutex_unlock(&model->lock);
 
     int checked = 0;
     int index = wantSeat;
 
     while (checked < model->nChairs) {
-        if (model->chairs[index] == -1) {
-            model->chairs[index] = id;
-            seatNumber = index;
-            printf("Kid %d got chair %d\n", id, index);
 
-            model->nMarching--;
-            pthread_cond_signal(&model->condStop);
+        // SPOT chair outside lock
+        if (model->chairs[index] == -1) {
+
+            pthread_mutex_lock(&model->lock);
+
+            // DOUBLE CHECK after locking
+            if (model->chairs[index] == -1) {
+                model->chairs[index] = id;
+                seatNumber = index;
+
+                printf("Kid %d got chair %d\n", id, index);
+
+                pthread_mutex_unlock(&model->lock);
+                return;
+            }
 
             pthread_mutex_unlock(&model->lock);
-            return;
         }
+
         index = (index + 1) % model->nChairs;
         checked++;
     }
 
-    model->nMarching--;
-    pthread_cond_signal(&model->condStop);
-    pthread_mutex_unlock(&model->lock);
-
     printf("Kid %d is OUT\n", id);
     pthread_exit(NULL);
+}
+
+void Kid::takeTurn(int sig) {
+    if (sig == SIGUSR1)
+        doMarch();
+    else if (sig == SIGUSR2)
+        doSit();
 }
 
 void Kid::play() {
@@ -77,17 +99,13 @@ void Kid::play() {
     while (true) {
         sigwait(&signalSet, &sig);
 
-        if (sig == SIGUSR1) {
-            doMarch();
-        }
-        else if (sig == SIGUSR2) {
-            doSit();
-        }
-        else if (sig == SIGQUIT) {
+        if (sig == SIGQUIT)
             pthread_exit(NULL);
-        }
+
+        takeTurn(sig);
     }
 }
+
 
 void* startThread(void* kid) {
     Kid* k = (Kid*)kid;
