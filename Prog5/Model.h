@@ -7,10 +7,8 @@ struct Model {
     pthread_mutex_t lock;
     pthread_cond_t condMarch;
     pthread_cond_t condStop;
-
     int nChairs;
     int* chairs;
-
     int nMarching;
     int nPlayers;
 
@@ -18,7 +16,6 @@ struct Model {
         nChairs = chairsCount;
         nPlayers = playersCount;
         nMarching = 0;
-
         pthread_mutex_init(&lock, NULL);
         pthread_cond_init(&condMarch, NULL);
         pthread_cond_init(&condStop, NULL);

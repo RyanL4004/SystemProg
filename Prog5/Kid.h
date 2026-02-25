@@ -12,17 +12,14 @@ private:
     pthread_t tid;
     unsigned int seed;
     sigset_t signalSet;
-
     int wantSeat;
     int seatNumber;
 
 public:
     Kid(Model* m, int id);
     ~Kid() {}
-
     int getID();
     pthread_t getTid();
-
     bool isSitting();
     void standUp();
     void takeTurn(int sig);
