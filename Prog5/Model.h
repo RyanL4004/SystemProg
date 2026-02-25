@@ -1,3 +1,5 @@
+// Ryan Lang & Kyle Mather
+// 2/25/26
 #ifndef MODEL_H
 #define MODEL_H
 
