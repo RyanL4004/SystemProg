@@ -2,8 +2,6 @@
 // 2/25/26
 #include <iostream>
 #include <unistd.h>
-#include <ctime>
-#include <cstdlib>
 #include "Kid.h"
 
 using namespace std;

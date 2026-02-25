@@ -2,8 +2,6 @@
 // 2/25/26
 #ifndef KID_H
 #define KID_H
-
-#include <pthread.h>
 #include <signal.h>
 #include "Model.h"
 

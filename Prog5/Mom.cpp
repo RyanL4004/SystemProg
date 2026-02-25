@@ -2,8 +2,6 @@
 // 2/25/26
 #include <iostream>
 #include <unistd.h>
-#include <cstdlib>
-#include <ctime>
 #include "Kid.h"
 
 
@@ -34,7 +32,6 @@ void playOneRound(Model* m, Kid* players[]) {
         pthread_cond_wait(&m->condMarch, &m->lock);
     pthread_mutex_unlock(&m->lock);
 
-    // Slow it down
     sleep(1);
 
     // Send stop signal
