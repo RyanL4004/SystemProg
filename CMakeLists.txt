@@ -21,3 +21,8 @@ add_executable(sweeper
         Prog3/Params.cpp
         Prog3/Params.hpp
         Prog3/main.cpp)
+add_executable(Musical
+        Prog5/Model.h
+        Prog5/Kid.h
+        Prog5/Kid.cpp
+        Prog5/Mom.cpp)
