@@ -1,0 +1,151 @@
+Test 1
+=============
+rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 5
+
+-------------------- NEW ROUND --------------------
+Kid 2 starts marching
+Kid 1 starts marching
+Kid 0 starts marching
+Kid 4 starts marching
+Kid 3 starts marching
+Kid 3 got chair 1
+Kid 2 got chair 2
+Kid 1 got chair 3
+Kid 0 got chair 0
+Kid 4 is OUT
+Mom removes Kid 4
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 2 starts marching
+Kid 1 starts marching
+Kid 3 starts marching
+Kid 3 got chair 2
+Kid 2 got chair 1
+Kid 1 got chair 0
+Kid 0 is OUT
+Mom removes Kid 0
+
+-------------------- NEW ROUND --------------------
+Kid 3 starts marching
+Kid 1 starts marching
+Kid 2 starts marching
+Kid 2 got chair 1
+Kid 3 got chair 0
+Kid 1 is OUT
+Mom removes Kid 1
+
+-------------------- NEW ROUND --------------------
+Kid 3 starts marching
+Kid 2 starts marching
+Kid 3 got chair 0
+Kid 2 is OUT
+Mom removes Kid 2
+
+WINNER: Kid 3
+
+Test 2
+==============
+rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 0   
+libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+zsh: abort      ./musical 0
+
+Test 3
+==============
+rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 3
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 1 starts marching
+Kid 2 starts marching
+Kid 2 got chair 0
+Kid 1 got chair 1
+Kid 0 is OUT
+Mom removes Kid 0
+
+-------------------- NEW ROUND --------------------
+Kid 1 starts marching
+Kid 2 starts marching
+Kid 2 got chair 0
+Kid 1 is OUT
+Mom removes Kid 1
+
+WINNER: Kid 2
+
+Test 4
+==============
+rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 7 
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 2 starts marching
+Kid 6 starts marching
+Kid 4 starts marching
+Kid 3 starts marching
+Kid 5 starts marching
+Kid 1 starts marching
+Kid 6 got chair 3
+Kid 4 got chair 1
+Kid 5 got chair 0
+Kid 2 got chair 5
+Kid 3 got chair 4
+Kid 0 got chair 2
+Kid 1 is OUT
+Mom removes Kid 1
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 3 starts marching
+Kid 2 starts marching
+Kid 6 starts marching
+Kid 5 starts marching
+Kid 4 starts marching
+Kid 3 got chair 0
+Kid 0 got chair 4
+Kid 6 got chair 1
+Kid 4 got chair 2
+Kid 5 got chair 3
+Kid 2 is OUT
+Mom removes Kid 2
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 6 starts marching
+Kid 3 starts marching
+Kid 4 starts marching
+Kid 5 starts marching
+Kid 6 got chair 0
+Kid 4 got chair 3
+Kid 0 got chair 1
+Kid 5 got chair 2
+Kid 3 is OUT
+Mom removes Kid 3
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 4 starts marching
+Kid 6 starts marching
+Kid 5 starts marching
+Kid 4 got chair 1
+Kid 0 got chair 2
+Kid 5 got chair 0
+Kid 6 is OUT
+Mom removes Kid 6
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 4 starts marching
+Kid 5 starts marching
+Kid 0 got chair 1
+Kid 4 got chair 0
+Kid 5 is OUT
+Mom removes Kid 5
+
+-------------------- NEW ROUND --------------------
+Kid 0 starts marching
+Kid 4 starts marching
+Kid 4 got chair 0
+Kid 0 is OUT
+Mom removes Kid 0
+
+WINNER: Kid 4
