@@ -1,6 +1,6 @@
 Test 1
 =============
-rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 5
+rydawg@Ryans-MacBook-Pro-10 Prog6 % ./musical 5
 
 -------------------- NEW ROUND --------------------
 Kid 2 starts marching
@@ -46,13 +46,13 @@ WINNER: Kid 3
 
 Test 2
 ==============
-rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 0   
+rydawg@Ryans-MacBook-Pro-10 Prog6 % ./musical 0   
 libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
 zsh: abort      ./musical 0
 
 Test 3
 ==============
-rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 3
+rydawg@Ryans-MacBook-Pro-10 Prog6 % ./musical 3
 
 -------------------- NEW ROUND --------------------
 Kid 0 starts marching
@@ -74,7 +74,7 @@ WINNER: Kid 2
 
 Test 4
 ==============
-rydawg@Ryans-MacBook-Pro-10 Prog5 % ./musical 7 
+rydawg@Ryans-MacBook-Pro-10 Prog6 % ./musical 7 
 
 -------------------- NEW ROUND --------------------
 Kid 0 starts marching
