@@ -23,7 +23,6 @@ public:
     inline int getSize() const { return size; }
     inline string getName() const { return simpleName; }
 
-    // operator< on inode — used by std::sort for the inode pass
     bool operator<(const FileID &other) const {
         return inode < other.inode;
     }
