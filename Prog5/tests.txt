@@ -1,0 +1,317 @@
+================================================================================
+CSCI 4547/6647 - Systems Programming - Spring 2026
+Program 5: Sweeper - Duplicate File Finder
+Transcript of Test Runs
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST 1: Basic run on test directory
+Command: ./sweeper /Users/rydawg/testdir
+Purpose: Verify iNode and content duplicate detection
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+27801755        12      /Users/rydawg/testdir/subA/file1.txt
+27801814        12      /Users/rydawg/testdir/subB/file2.txt
+27801871        12      /Users/rydawg/testdir/subC/file3.txt
+27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+27802051        13      /Users/rydawg/testdir/subA/samesize1.txt
+27802110        13      /Users/rydawg/testdir/subB/samesize2.txt
+27801930        15      /Users/rydawg/testdir/subA/original.txt
+27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+27802169        39      /Users/rydawg/testdir/subC/unique.txt
+
+===== Duplicates by iNode (hard links) =====
+  iNode 27801930:
+    27801930        15      /Users/rydawg/testdir/subA/original.txt
+    27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+
+===== Duplicates by content (same size + identical bytes) =====
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=12):
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+  Content match (size=12):
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=12):
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=15):
+    27801930        15      /Users/rydawg/testdir/subA/original.txt
+    27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+
+Normal termination.
+
+--------------------------------------------------------------------------------
+TEST 2: Verbose mode on test directory
+Command: ./sweeper -v /Users/rydawg/testdir
+Purpose: Verify traversal output showing all entries visited
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+/Users/rydawg/testdir/subA       Directory       27801696        subA
+/Users/rydawg/testdir/subA/file1.txt     File    27801755        file1.txt
+/Users/rydawg/testdir/subA/original.txt  File    27801930        original.txt
+/Users/rydawg/testdir/subA/empty1.txt    File    27802226        empty1.txt
+/Users/rydawg/testdir/subA/deep          Directory       27802343        deep
+/Users/rydawg/testdir/subA/deep/file4.txt        File    27802405        file4.txt
+/Users/rydawg/testdir/subA/samesize1.txt File    27802051        samesize1.txt
+/Users/rydawg/testdir/subB       Directory       27801697        subB
+/Users/rydawg/testdir/subB/file2.txt     File    27801814        file2.txt
+/Users/rydawg/testdir/subB/empty2.txt    File    27802286        empty2.txt
+/Users/rydawg/testdir/subB/hardlink.txt  File    27801930        hardlink.txt
+/Users/rydawg/testdir/subB/samesize2.txt File    27802110        samesize2.txt
+/Users/rydawg/testdir/subC       Directory       27801698        subC
+/Users/rydawg/testdir/subC/unique.txt    File    27802169        unique.txt
+/Users/rydawg/testdir/subC/file3.txt     File    27801871        file3.txt
+27801755        12      /Users/rydawg/testdir/subA/file1.txt
+27801814        12      /Users/rydawg/testdir/subB/file2.txt
+27801871        12      /Users/rydawg/testdir/subC/file3.txt
+27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+27802051        13      /Users/rydawg/testdir/subA/samesize1.txt
+27802110        13      /Users/rydawg/testdir/subB/samesize2.txt
+27801930        15      /Users/rydawg/testdir/subA/original.txt
+27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+27802169        39      /Users/rydawg/testdir/subC/unique.txt
+
+===== Duplicates by iNode (hard links) =====
+  iNode 27801930:
+    27801930        15      /Users/rydawg/testdir/subA/original.txt
+    27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+
+===== Duplicates by content (same size + identical bytes) =====
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=12):
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+  Content match (size=12):
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=12):
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=15):
+    27801930        15      /Users/rydawg/testdir/subA/original.txt
+    27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+
+Normal termination.
+
+--------------------------------------------------------------------------------
+TEST 3: Min-size filter on test directory
+Command: ./sweeper -m 20 /Users/rydawg/testdir
+Purpose: Verify files below minimum size threshold are excluded
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+27802169        39      /Users/rydawg/testdir/subC/unique.txt
+
+===== Duplicates by iNode (hard links) =====
+  (none found)
+
+===== Duplicates by content (same size + identical bytes) =====
+  (none found)
+
+Normal termination.
+
+--------------------------------------------------------------------------------
+TEST 4: Output to file
+Command: ./sweeper -o results.txt /Users/rydawg/testdir
+Purpose: Verify output is correctly written to file instead of stdout
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+
+Normal termination.
+
+--- Contents of results.txt ---
+
+27801755        12      /Users/rydawg/testdir/subA/file1.txt
+27801814        12      /Users/rydawg/testdir/subB/file2.txt
+27801871        12      /Users/rydawg/testdir/subC/file3.txt
+27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+27802051        13      /Users/rydawg/testdir/subA/samesize1.txt
+27802110        13      /Users/rydawg/testdir/subB/samesize2.txt
+27801930        15      /Users/rydawg/testdir/subA/original.txt
+27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+27802169        39      /Users/rydawg/testdir/subC/unique.txt
+
+===== Duplicates by iNode (hard links) =====
+  iNode 27801930:
+    27801930        15      /Users/rydawg/testdir/subA/original.txt
+    27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+
+===== Duplicates by content (same size + identical bytes) =====
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+  Content match (size=12):
+    27801755        12      /Users/rydawg/testdir/subA/file1.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=12):
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+  Content match (size=12):
+    27801814        12      /Users/rydawg/testdir/subB/file2.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=12):
+    27801871        12      /Users/rydawg/testdir/subC/file3.txt
+    27802405        12      /Users/rydawg/testdir/subA/deep/file4.txt
+  Content match (size=15):
+    27801930        15      /Users/rydawg/testdir/subA/original.txt
+    27801930        15      /Users/rydawg/testdir/subB/hardlink.txt
+
+--------------------------------------------------------------------------------
+TEST 5: No-duplicates directory
+Command: ./sweeper ~/clean_dir
+Purpose: Verify no false positives when all files are unique
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+27807567        5       /Users/rydawg/clean_dir/b.txt
+27807507        6       /Users/rydawg/clean_dir/a.txt
+27807625        6       /Users/rydawg/clean_dir/c.txt
+
+===== Duplicates by iNode (hard links) =====
+  (none found)
+
+===== Duplicates by content (same size + identical bytes) =====
+  (none found)
+
+Normal termination.
+
+--------------------------------------------------------------------------------
+TEST 6: Single file directory
+Command: ./sweeper ~/single_dir
+Purpose: Verify correct behavior with only one file present
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+27807978        8       /Users/rydawg/single_dir/solo.txt
+
+===== Duplicates by iNode (hard links) =====
+  (none found)
+
+===== Duplicates by content (same size + identical bytes) =====
+  (none found)
+
+Normal termination.
+
+--------------------------------------------------------------------------------
+TEST 7: Home directory run (Desktop)
+Command: ./sweeper -o home_results.txt ~/Desktop
+Purpose: Real-world test on a portion of the home directory
+--------------------------------------------------------------------------------
+
+-------------------------------------------------------
+        Lang & Mather
+        CSCI4547
+        February 16th  2:00PM
+-------------------------------------------------------
+Welcome to P5: Sweeper (Duplicate Finder)
+
+Normal termination.
+
+--- Contents of home_results.txt ---
+
+27156848        247     /Users/rydawg/Desktop/CarShow2026/ContractAuthForm (1).textClipping
+27785758        2340    /Users/rydawg/Desktop/climate.txt
+27783322        5321    /Users/rydawg/Desktop/Lab7 - LangRyan.zip
+26418822        6148    /Users/rydawg/Desktop/CarShow2026/.DS_Store
+2428189         8196    /Users/rydawg/Desktop/.DS_Store
+27808138        8757    /Users/rydawg/Desktop/test.txt
+27783284        12206   /Users/rydawg/Desktop/Lab7 - LangRyan/lab7
+26596247        17041   /Users/rydawg/Desktop/SAI-N249-Evap_Delete.xlsx
+14890220        23234   /Users/rydawg/Desktop/Screenshot 2025-11-16 at 8.55.06 PM.png
+10750157        69801   /Users/rydawg/Desktop/Screenshot 2025-10-15 at 7.41.18 PM.png
+19936248        217537  /Users/rydawg/Desktop/Screenshot 2026-01-12 at 7.55.27 PM.png
+24862079        249130  /Users/rydawg/Desktop/CarShow2026/EntertainerContract.pdf
+27801157        293862  /Users/rydawg/Desktop/Screenshot 2026-03-23 at 5.31.02 PM.png
+13956710        303025  /Users/rydawg/Desktop/IMG_2006.jpeg
+22779191        376278  /Users/rydawg/Desktop/CarShow2026/PortaletMap.jpg
+24973407        527338  /Users/rydawg/Desktop/CarShow2026/CarShowMap.pdf
+22779156        558959  /Users/rydawg/Desktop/CarShow2026/MapOverview.jpg
+21227054        566349  /Users/rydawg/Desktop/Screenshot 2026-01-21 at 4.27.25 PM.png
+23144598        757112  /Users/rydawg/Desktop/CarShow2026/Screenshot 2026-02-10 at 11.50.44 AM.png
+23148373        782831  /Users/rydawg/Desktop/Screenshot 2026-02-10 at 2.49.11 PM.png
+24706128        831411  /Users/rydawg/Desktop/CarShow2026/Test.jpg
+23148398        847645  /Users/rydawg/Desktop/Screenshot 2026-02-10 at 2.49.16 PM.png
+24724665        1122255 /Users/rydawg/Desktop/CarShow2026/CallToActionCarShow.jpg
+24707308        1126565 /Users/rydawg/Desktop/CarShow2026/CallToAction.jpg
+24706872        1126885 /Users/rydawg/Desktop/CarShow2026/Test3.jpg
+24706563        1127331 /Users/rydawg/Desktop/CarShow2026/Test2.jpg
+22239273        1935736 /Users/rydawg/Desktop/Screenshot 2026-02-02 at 10.57.22 AM.png
+22823513        2241651 /Users/rydawg/Desktop/CarShow2026/CarShow2026Flyer.jpg
+24713752        2681428 /Users/rydawg/Desktop/CarShow2026/VendorsOutreach.jpg
+24361124        4117416 /Users/rydawg/Desktop/CarShow2026/MarchMonthlyMeet.jpg
+24362053        4126835 /Users/rydawg/Desktop/CarShow2026/MonthlyStudentCarMeetNoLocation.jpg
+27267729        4825069 /Users/rydawg/Desktop/Boat-1.jpg
+22769154        6811413 /Users/rydawg/Desktop/CarShow2026/UNH24' (22 of 54).JPG
+22769153        10204028 /Users/rydawg/Desktop/CarShow2026/UNH24' (3 of 54).JPG
+14659095        11463025 /Users/rydawg/Desktop/MagicMan-1.jpg
+13737693        14005124 /Users/rydawg/Desktop/Elizabeth-1.jpg
+22769152        14017257 /Users/rydawg/Desktop/CarShow2026/UNH24' (37 of 54).JPG
+24724764        14165600 /Users/rydawg/Desktop/CarShow2026/CallToActionCarShow.psd
+24709938        14172030 /Users/rydawg/Desktop/CarShow2026/VendorOutreach.psd
+24362510        113878475 /Users/rydawg/Desktop/CarShow2026/Untitled-1.psd
+24713959        113956892 /Users/rydawg/Desktop/CarShow2026/VendorsOutreach.psd
+22823566        140624619 /Users/rydawg/Desktop/CarShow2026/CarShow2026Flyer.psd
+
+===== Duplicates by iNode (hard links) =====
+  (none found)
+
+===== Duplicates by content (same size + identical bytes) =====
+  (none found)
+
+================================================================================
+END OF TRANSCRIPT
+================================================================================
