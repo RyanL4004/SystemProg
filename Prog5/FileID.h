@@ -21,6 +21,17 @@ public:
     inline string getPath() const { return fullPath; }
     inline ino_t getInode() const { return inode; }
     inline int getSize() const { return size; }
+    inline string getName() const { return simpleName; }
+
+    // operator< on inode — used by std::sort for the inode pass
+    bool operator<(const FileID &other) const {
+        return inode < other.inode;
+    }
 };
+
+// Global comparison function for size — passed explicitly to std::sort
+inline bool compareBySize(const FileID &a, const FileID &b) {
+    return a.getSize() < b.getSize();
+}
 
 #endif

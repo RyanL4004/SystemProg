@@ -89,3 +89,81 @@ void Sweeper::printFiles(ostream &out) const {
         f.print(out);
     }
 }
+
+void Sweeper::findDups(vector<FileID> &fileList, ostream &out) {
+
+    // ── Pass 1: sort by iNode, find files sharing the same iNode ──────────
+    out << "\n===== Duplicates by iNode (hard links) =====\n";
+    std::sort(fileList.begin(), fileList.end()); // uses member operator
+
+    bool anyInode = false;
+    int i = 0;
+    int n = static_cast<int>(fileList.size());
+
+    while (i < n) {
+        int j = i + 1;
+        // advance j while inode matches
+        while (j < n && fileList[j].getInode() == fileList[i].getInode()) {
+            ++j;
+        }
+        // [i, j) is a group; if more than one → duplicates
+        if (j - i > 1) {
+            anyInode = true;
+            out << "  iNode " << fileList[i].getInode() << ":\n";
+            for (int k = i; k < j; ++k) {
+                out << "    ";
+                fileList[k].print(out);
+            }
+        }
+        i = j; // next group
+    }
+    if (!anyInode) out << "  (none found)\n";
+
+
+    // ── Pass 2: sort by size, compare contents of same-size files ─────────
+    out << "\n===== Duplicates by content (same size + identical bytes) =====\n";
+    std::sort(fileList.begin(), fileList.end(), compareBySize);
+
+    bool anyContent = false;
+    i = 0;
+
+    while (i < n) {
+        int j = i + 1;
+        // advance j while size matches
+        while (j < n && fileList[j].getSize() == fileList[i].getSize()) {
+            ++j;
+        }
+        // [i, j) share the same size — compare each pair
+        if (j - i > 1) {
+            // check all pairs within this size group
+            for (int a = i; a < j - 1; ++a) {
+                for (int b = a + 1; b < j; ++b) {
+                    // open and compare files byte by byte
+                    ifstream fa(fileList[a].getPath(), ios::binary);
+                    ifstream fb(fileList[b].getPath(), ios::binary);
+
+                    if (!fa.is_open() || !fb.is_open()) continue;
+
+                    bool same = true;
+                    char ca, cb;
+                    while (fa.get(ca) && fb.get(cb)) {
+                        if (ca != cb) { same = false; break; }
+                    }
+                    // also check both reached EOF together
+                    if (same && (fa.peek() != EOF || fb.peek() != EOF)) {
+                        same = false;
+                    }
+
+                    if (same) {
+                        anyContent = true;
+                        out << "  Content match (size=" << fileList[a].getSize() << "):\n";
+                        out << "    "; fileList[a].print(out);
+                        out << "    "; fileList[b].print(out);
+                    }
+                }
+            }
+        }
+        i = j;
+    }
+    if (!anyContent) out << "  (none found)\n";
+}

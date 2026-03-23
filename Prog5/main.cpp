@@ -5,19 +5,21 @@
 
 int main(int argc, char* argv[]) {
     banner();
-    std::cout << "Welcome to P4: Sweeper (Recursive Traversal)\n";
+    std::cout << "Welcome to P5: Sweeper (Duplicate Finder)\n";
 
     Params params(argc, argv);
     Sweeper S(params);
 
-    // P4: recursive traversal starting at absolute path params.startDir
+    // Recursive traversal
     S.travel(params.startDir);
 
-    // P4: sort by length/size
+    // Print all files found (sorted by size)
     S.sortBySize();
+    std::ostream &out = params.out.is_open() ? params.out : std::cout;
+    S.printFiles(out);
 
-    // output
-    S.printFiles(params.out.is_open() ? params.out : std::cout);
+    // P5: find and report duplicates
+    S.findDups(S.getFiles(), out);
 
     bye();
     return 0;

@@ -30,11 +30,15 @@ public:
 
     // P4: recursive traversal
     void travel(const string& absDirPath);
-
     // sorting by size for P4
     void sortBySize();
-
     void printFiles(ostream &out = cout) const;
+
+    // P5: find and report duplicate files
+    void findDups(vector<FileID> &fileList, ostream &out = cout);
+
+    // expose files vector for main to pass to findDups
+    vector<FileID>& getFiles() { return files; }
 };
 
 #endif
